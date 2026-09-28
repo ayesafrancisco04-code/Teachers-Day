@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Teacher's Day!</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Falling Flowers Background Container -->
+  <div class="flower-container" id="flowerContainer"></div>
+
+  <!-- Background Glow Effects -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <!-- Main Container Card -->
+  <main class="card">
+    
+    <!-- BEFORE CLICK: Initial View (Header image + Button) -->
+    <div id="initial-view">
+      <!-- PHOTO 1: Header Banner Image -->
+      <div class="banner-box">
+        <img src="header.png" alt="Happy Teacher's Day Header" class="banner-img">
+      </div>
+
+      <!-- Title Bar -->
+      <div class="title-bar">
+        <h2>Teacher Appreciation Tribute 🌸</h2>
+      </div>
+
+      <p class="sub-text">We have prepared a special message for you!</p>
+      <button class="open-btn" onclick="revealMessage()">Click to Open Message 💌</button>
+    </div>
+
+    <!-- AFTER CLICK: Revealed Content (Hides initial view completely) -->
+    <div id="message-view" class="hidden">
+      
+      <!-- Title Bar inside revealed view -->
+      <div class="title-bar">
+        <h2>Happy Teacher's Month! 🌸</h2>
+      </div>
+
+      <!-- PHOTO 2: Class & Teacher Photo -->
+      <div class="photo-container">
+        <img src="group.jpg" alt="Class Photo with Teacher" class="group-img">
+      </div>
+
+      <!-- Written Tribute Message -->
+      <div class="message-box">
+        <p>
+          Thank you for your endless dedication, guidance, and patience. You inspire us every day to learn, grow, and reach our full potential. Happy Teacher's Month!
+        </p>
+      </div>
+
+      <!-- Background Audio Player -->
+      <audio id="bgMusic" loop>
+        <source src="song.mp3" type="audio/mpeg">
+      </audio>
+
+    </div>
+
+  </main>
+
+  <script>
+    // Reveal message, hide initial view (including header image), and play music
+    function revealMessage() {
+      // Hide the initial view completely (header photo + button)
+      document.getElementById('initial-view').style.display = 'none';
+      
+      // Show revealed content
+      const messageView = document.getElementById('message-view');
+      messageView.classList.remove('hidden');
+      
+      // Auto-play song
+      const music = document.getElementById('bgMusic');
+      music.play();
+    }
+
+    // Generate falling flower petals dynamically
+    const flowerContainer = document.getElementById('flowerContainer');
+    const flowers = ['🌸', '🌺', '✨', '💜'];
+
+    function createFlower() {
+      const flower = document.createElement('div');
+      flower.classList.add('flower');
+      
+      // Randomly pick a petal icon
+      flower.innerText = flowers[Math.floor(Math.random() * flowers.length)];
+      
+      // Randomize position, size, and animation duration
+      flower.style.left = Math.random() * 100 + 'vw';
+      flower.style.fontSize = (Math.random() * 12 + 16) + 'px';
+      flower.style.animationDuration = (Math.random() * 3 + 4) + 's';
+      flower.style.opacity = Math.random() * 0.7 + 0.3;
+
+      flowerContainer.appendChild(flower);
+
+      // Remove flower after it falls to prevent clutter
+      setTimeout(() => {
+        flower.remove();
+      }, 7000);
+    }
+
+    // Spawn a flower every 300ms
+    setInterval(createFlower, 300);
+  </script>
+
+</body>
+</html>

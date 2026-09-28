@@ -1,0 +1,189 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  /* Dark Pink & Purple Background Gradient */
+  background: #1e0b2e;
+  background-image: radial-gradient(at 20% 20%, #831843 0px, transparent 50%),
+                    radial-gradient(at 80% 80%, #581c87 0px, transparent 50%),
+                    radial-gradient(at 50% 50%, #701a75 0px, transparent 50%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  color: #333333;
+}
+
+/* Falling Flowers Container */
+.flower-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.flower {
+  position: absolute;
+  top: -30px;
+  user-select: none;
+  animation: fall linear forwards;
+}
+
+/* Falling & Swaying Animation */
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg) translateX(0);
+  }
+  50% {
+    transform: translateY(50vh) rotate(180deg) translateX(25px);
+  }
+  100% {
+    transform: translateY(105vh) rotate(360deg) translateX(-25px);
+  }
+}
+
+/* Ambient Background Glows */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.4;
+  z-index: 0;
+}
+
+.orb-1 {
+  width: 280px;
+  height: 280px;
+  background: #f472b6;
+  top: 10%;
+  left: 10%;
+}
+
+.orb-2 {
+  width: 300px;
+  height: 300px;
+  background: #c084fc;
+  bottom: 10%;
+  right: 10%;
+}
+
+/* Main White Card */
+.card {
+  position: relative;
+  z-index: 2;
+  background: #ffffff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
+              0 0 25px rgba(236, 72, 153, 0.2);
+  text-align: center;
+}
+
+/* Header Graphic Image Box */
+.banner-box {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 6px;
+  margin-bottom: 16px;
+}
+
+.banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Pink Title Bar */
+.title-bar {
+  background-color: #fce7f3;
+  color: #9d174d;
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.title-bar h2 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.sub-text {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+/* Open Button */
+.open-btn {
+  background: linear-gradient(135deg, #ec4899, #a855f7);
+  color: #ffffff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(236, 72, 153, 0.35);
+  transition: all 0.3s ease;
+  margin: 10px 0;
+}
+
+.open-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 22px rgba(236, 72, 153, 0.5);
+}
+
+/* Hidden Class & Reveal Animation */
+.hidden {
+  display: none;
+}
+
+#message-view {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Group Photo Frame */
+.photo-container {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 18px;
+  border: 3px solid #f472b6;
+  box-shadow: 0 6px 15px rgba(244, 114, 182, 0.3);
+}
+
+.group-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Message Box */
+.message-box {
+  background-color: #fdf4ff;
+  border: 1px solid #f5d0fe;
+  padding: 18px;
+  border-radius: 12px;
+  color: #581c87;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
